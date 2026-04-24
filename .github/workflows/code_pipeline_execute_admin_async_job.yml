@@ -21,7 +21,7 @@ jobs:
         id: pipeline-params
         run: |
           PIPELINE_PARAMETERS=\
-          "CommandToExecute=\"scripts/execute_admin_async_job.sh ${{ inputs.SYNAPSE_HOST }} '${{ inputs.ASYNC_JOB_PAYLOAD }}'\""
+          "CommandToExecute=\"scripts/execute_admin_async_job.sh ${{ inputs.SYNAPSE_HOST }} ${{ inputs.ASYNC_JOB_PAYLOAD }}\""
           echo "PIPELINE_PARAMETERS=$PIPELINE_PARAMETERS" >> $GITHUB_OUTPUT
     outputs:
       PIPELINE_PARAMETERS: ${{ steps.pipeline-params.outputs.PIPELINE_PARAMETERS }}
