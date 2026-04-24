@@ -36,9 +36,10 @@ jobs:
     steps:
       - name: Determine Pipeline Parameters
         id: pipeline-params
+        env:
+          INPUT_PIPELINE_PARAMETERS: ${{ inputs.PIPELINE_PARAMETERS }}
         run: |
-          PIPELINE_PARAMETERS=\
-          ${{ inputs.PIPELINE_PARAMETERS }},\
+          PIPELINE_PARAMETERS=${INPUT_PIPELINE_PARAMETERS},\
           Branch=${{ env.REPOSITORY_BRANCH }},\
           RepoOwner=${{ env.REPOSITORY_OWNER }},\
           Repository=${{ env.REPOSITORY_NAME }},\

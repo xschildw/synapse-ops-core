@@ -19,9 +19,12 @@ jobs:
     steps:
       - name: Determine Pipeline Parameters
         id: pipeline-params
+        env:
+          SYNAPSE_HOST: ${{ inputs.SYNAPSE_HOST }}
+          ASYNC_JOB_PAYLOAD: ${{ inputs.ASYNC_JOB_PAYLOAD }}
         run: |
-          PIPELINE_PARAMETERS=\
-          "CommandToExecute=\"scripts/execute_admin_async_job.sh ${{ inputs.SYNAPSE_HOST }} ${{ inputs.ASYNC_JOB_PAYLOAD }}\""
+          COMMAND_TO_EXECUTE="scripts/execute_admin_async_job.sh $SYNAPSE_HOST '$ASYNC_JOB_PAYLOAD'"
+          PIPELINE_PARAMETERS="CommandToExecute=\"$COMMAND_TO_EXECUTE\""
           echo "PIPELINE_PARAMETERS=$PIPELINE_PARAMETERS" >> $GITHUB_OUTPUT
     outputs:
       PIPELINE_PARAMETERS: ${{ steps.pipeline-params.outputs.PIPELINE_PARAMETERS }}
