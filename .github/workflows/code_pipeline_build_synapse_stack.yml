@@ -62,6 +62,7 @@ jobs:
       SECOND_REPO_NAME: Synapse-Stack-Builder
       SECOND_REPO_BRANCH: release-${{ inputs.INSTANCE }}
       BUILD_IMAGE: aws/codebuild/amazonlinux-aarch64-standard:3.0
+      ENVIRONMENT_TYPE: ARM_CONTAINER
     secrets: inherit
     permissions:
       id-token: write
