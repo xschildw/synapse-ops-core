@@ -90,6 +90,7 @@ if [[ "prod" == "$STACK" ]]; then
   CMD_PROPS+=" -Dorg.sagebionetworks.repositoryservice.endpoint.prod=https://repo-prod.prod.sagebase.org/repo/v1"
   CMD_PROPS+=" -Dorg.sagebionetworks.enable.rds.enhanced.monitoring=true"
   CMD_PROPS+=" -Dorg.sagebionetworks.vpc.ops.export.prefix=us-east-1-synapse-ops-vpc-v2"
+  CMD_PROPS+=" -Dorg.sagebionetworks.cloudfront.private.key.id=K1ODM3BLJ5L7YV"
 else
   CMD_PROPS+=" -Dorg.sagebionetworks.beanstalk.instance.type=t4g.large"
   CMD_PROPS+=" -Dorg.sagebionetworks.repo.rds.instance.class=db.t4g.medium"
@@ -110,6 +111,7 @@ else
   CMD_PROPS+=" -Dorg.sagebionetworks.route.53.hosted.zone.portal=dev.sagebase.org"
   CMD_PROPS+=" -Dorg.sagebionetworks.enable.rds.enhanced.monitoring=false"
   CMD_PROPS+=" -Dorg.sagebionetworks.repo.time.to.live.hours=0"
+  CMD_PROPS+=" -Dorg.sagebionetworks.cloudfront.private.key.id=K3YW7HKX09P9M"
 fi
 export CMD_PROPS
 
